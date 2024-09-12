@@ -1,5 +1,5 @@
 <h1 align="center" style="text-align:center;">
-    若冰说CSS目录指南
+    CSS目录指南
 </h1>
 
 ---
