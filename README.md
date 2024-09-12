@@ -16,18 +16,3 @@
  <br/><br/><br/>
 
 
-<h4>
-CSDN
-<br>
-    <a href="https://blog.csdn.net/weixin_72553980/category_12528857.html">
-        CSS
-    </a>
-</h4>
-
-<h4>
-简书
-<br>
-    <a href="https://www.jianshu.com/nb/55071938">
-        CSS
-    </a>
-</h4>
