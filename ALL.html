@@ -5,38 +5,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>晓峰做的一些小设计</title>
+    <title>Generated Iframes</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background: #1a1a2e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 允许纵向滚动 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 36px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .content {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
+            gap: 20px; /* 卡片之间的间距 */
+            padding: 20px 40px; /* 左右侧的内边距 */
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            justify-content: center; /* 居中排列内容 */
         }
+
         .iframe-card {
-            background: #fff;
-            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 10px;
             text-align: center;
             width: 620px;
+            margin: 10px; /* 每个卡片的外边距，确保左中右都有间距 */
+            backdrop-filter: blur(10px);
         }
+
         h2 {
             font-size: 18px;
             margin: 10px 0;
-            color: #333;
+            color: #f4f4f9;
         }
+
         iframe {
             border: none;
             border-radius: 4px;
         }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+        }
     </style>
 </head>
 <body>
-    
+    <h1>晓峰的一些小设计</h1>
+    <div class="content">
+        
             <div class="iframe-card">
                 <h2>01-开关按钮</h2>
                 <iframe src="./xiaofeng-html/01-开关按钮/01-开关按钮.html" title="01-开关按钮" width="600" height="400"></iframe>
@@ -302,5 +353,26 @@
                 <iframe src="./xiaofeng-html/52-让它变得阴森恐怖/52-让它变得阴森恐怖.html" title="52-让它变得阴森恐怖" width="600" height="400"></iframe>
             </div>
             
+    </div>
+    <div class="background"></div>
+
+    <script>
+        // 创建粒子动画
+        document.addEventListener('mousemove', (e) => {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            document.body.appendChild(particle);
+
+            // 设定粒子初始位置
+            particle.style.left = `${e.pageX}px`;
+            particle.style.top = `${e.pageY}px`;
+
+            // 动态移动粒子
+            setTimeout(() => {
+                particle.style.transform = `translate(-50%, -50%) scale(0)`;
+                setTimeout(() => particle.remove(), 500); // 延迟删除粒子
+            }, 100);
+        });
+    </script>
 </body>
 </html>
